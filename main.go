@@ -1,0 +1,44 @@
+package main
+
+import (
+	"log"
+
+	"github.com/Dbriane208/stable-market/db"
+	"github.com/Dbriane208/stable-market/networks"
+	"github.com/Dbriane208/stable-market/routes"
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
+)
+
+func main() {
+	// Load .env file
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	// Initialize db
+	if err := db.DatabaseClient(); err != nil {
+		log.Fatal("Failed to initialize database connection: ", err)
+	}
+
+	// Initialize both network clients
+	_, err = networks.InitClients()
+	if err != nil {
+		log.Fatal("Failed to initialize clients: ", err)
+	}
+
+	// Setup Gin router
+	router := gin.Default()
+
+	// Setup routes
+	routes.SetupMerchantRoutes(router)
+	routes.SetupPlatformRoutes(router)
+	routes.SetupOrderRoutes(router)
+
+	// Start server
+	log.Println("Server starting on :8080")
+	if err := router.Run(":8080"); err != nil {
+		log.Fatal("Failed to start server: ", err)
+	}
+}
