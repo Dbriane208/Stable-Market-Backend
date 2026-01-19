@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: stable-market-backend
+    env: go
+    buildCommand: go build -o app
+    startCommand: ./app
+    envVars:
+      - key: GOTOOLCHAIN
+        value: auto
