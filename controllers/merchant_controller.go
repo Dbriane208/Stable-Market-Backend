@@ -84,7 +84,7 @@ func RegisterMerchant(ctx *gin.Context) {
 		ExplorerURL:     networks.BaseSepoliaConfig.ExplorerURL + "/tx/" + receipt.TxHash.Hex(),
 	}
 
-	ctx.JSON(http.StatusOK, response)
+	ctx.JSON(http.StatusCreated, response)
 }
 
 // GetMerchantInfoById
@@ -115,13 +115,13 @@ func GetMerchantInfoById(ctx *gin.Context) {
 
 	info := merchants[0]
 	ctx.JSON(http.StatusOK, &models.MerchantResponse{
-		MerchantId:         common.HexToHash(info.MerchantId),
-		Message:            "Success",
-		MetadataURI:        info.MetadataURI,
-		WalletAddress:      common.HexToAddress(info.PayoutWalletAddress),
-		MerchantName:       info.MerchantName,
-		TransactionHash:    common.HexToHash(info.TransactionHash),
-		ExplorerURL:        networks.BaseSepoliaConfig.ExplorerURL + "/tx/" + info.TransactionHash,
+		MerchantId:      common.HexToHash(info.MerchantId),
+		Message:         "Success",
+		MetadataURI:     info.MetadataURI,
+		WalletAddress:   common.HexToAddress(info.PayoutWalletAddress),
+		MerchantName:    info.MerchantName,
+		TransactionHash: common.HexToHash(info.TransactionHash),
+		ExplorerURL:     networks.BaseSepoliaConfig.ExplorerURL + "/tx/" + info.TransactionHash,
 	})
 }
 

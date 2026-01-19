@@ -1,6 +1,5 @@
 package models
 
-
 type PrepareRefundResponse struct {
 	TransactionData TransactionData `json:"transactionData"`
 	OrderId         string          `json:"orderId"`
@@ -129,8 +128,8 @@ type MerchantRegistryUpdate struct {
 }
 
 type TokenSupport struct {
-	TokenAddress string   `json:"tokenAddress" binding:"required"`
-	StatusValue  string  `json:"statusValue" binding:"required"`
+	TokenAddress string `json:"tokenAddress" binding:"required"`
+	StatusValue  string `json:"statusValue" binding:"required"`
 }
 
 type PlatformBalanceCheck struct {
@@ -143,6 +142,6 @@ type ContractBalanceCheck struct {
 }
 
 type UpdateMerchantVerificationStatus struct {
-	MerchantId string `json:"merchantId" binding:"required"`
+	MerchantId         string `json:"merchantId" binding:"required"`
 	VerificationStatus string `json:"verificationStatus" binding:"required"`
 }

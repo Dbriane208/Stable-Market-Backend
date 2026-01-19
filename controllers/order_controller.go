@@ -188,7 +188,7 @@ func PrepareCreateOrder(ctx *gin.Context) {
 		Message:      "Please sign with your wallet and submit the transaction hash to confirm.",
 	}
 
-	ctx.JSON(http.StatusOK, response)
+	ctx.JSON(http.StatusCreated, response)
 }
 
 func ConfirmCreateOrder(ctx *gin.Context) {

@@ -6,6 +6,7 @@ import (
 	"github.com/Dbriane208/stable-market/db"
 	"github.com/Dbriane208/stable-market/networks"
 	"github.com/Dbriane208/stable-market/routes"
+	"github.com/Dbriane208/stable-market/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
@@ -28,6 +29,10 @@ func main() {
 		log.Fatal("Failed to initialize clients: ", err)
 	}
 
+	if err = utils.InitCloudinary(); err != nil {
+		log.Fatal("Failed to initialize cloudinary client: ", err)
+	}
+
 	// Setup Gin router
 	router := gin.Default()
 
@@ -35,6 +40,7 @@ func main() {
 	routes.SetupMerchantRoutes(router)
 	routes.SetupPlatformRoutes(router)
 	routes.SetupOrderRoutes(router)
+	routes.SetupMarketRoutes(router)
 
 	// Start server
 	log.Println("Server starting on :8080")

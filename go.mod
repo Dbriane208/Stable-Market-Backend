@@ -18,10 +18,12 @@ require (
 	github.com/bytedance/gopkg v0.1.3 // indirect
 	github.com/bytedance/sonic v1.14.2 // indirect
 	github.com/bytedance/sonic/loader v0.4.0 // indirect
+	github.com/cloudinary/cloudinary-go/v2 v2.14.0 // indirect
 	github.com/cloudwego/base64x v0.1.6 // indirect
 	github.com/consensys/gnark-crypto v0.18.0 // indirect
 	github.com/crate-crypto/go-eth-kzg v1.4.0 // indirect
 	github.com/crate-crypto/go-ipa v0.0.0-20240724233137-53bbb0ceb27a // indirect
+	github.com/creasty/defaults v1.7.0 // indirect
 	github.com/deckarep/golang-set/v2 v2.6.0 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.0.1 // indirect
 	github.com/ethereum/c-kzg-4844/v2 v2.1.5 // indirect
@@ -37,7 +39,8 @@ require (
 	github.com/goccy/go-json v0.10.5 // indirect
 	github.com/goccy/go-yaml v1.19.2 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
-	github.com/google/uuid v1.3.0 // indirect
+	github.com/google/uuid v1.5.0 // indirect
+	github.com/gorilla/schema v1.4.1 // indirect
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/holiman/uint256 v1.3.2 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
