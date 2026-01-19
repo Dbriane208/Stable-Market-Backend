@@ -3,7 +3,7 @@ module github.com/Dbriane208/stable-market
 go 1.25
 
 require (
-	github.com/Dbriane208/stablebase-go-sdk v0.0.0-20260114145204-063177237609
+	github.com/Dbriane208/stablebase-go-sdk v0.0.0-20260119132756-06a235d94fb9
 	github.com/cloudinary/cloudinary-go/v2 v2.14.0
 	github.com/ethereum/go-ethereum v1.16.7
 	github.com/gin-gonic/gin v1.11.0
