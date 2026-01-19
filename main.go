@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"github.com/Dbriane208/stable-market/db"
 	"github.com/Dbriane208/stable-market/networks"
@@ -23,7 +24,7 @@ func main() {
 	}
 
 	// Initialize both network clients
-	_, err = networks.InitClients()
+	_, err := networks.InitClients()
 	if err != nil {
 		log.Fatal("Failed to initialize clients: ", err)
 	}
@@ -42,8 +43,13 @@ func main() {
 	routes.SetupMarketRoutes(router)
 
 	// Start server
-	log.Println("Server starting on :8080")
-	if err := router.Run(":8080"); err != nil {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	log.Println("Server starting on :" + port)
+	if err := router.Run(":" + port); err != nil {
 		log.Fatal("Failed to start server: ", err)
 	}
 }
