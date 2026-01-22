@@ -9,6 +9,7 @@ import (
 	"github.com/Dbriane208/stable-market/routes"
 	"github.com/Dbriane208/stable-market/utils"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
 	"github.com/joho/godotenv"
 )
 
@@ -35,6 +36,15 @@ func main() {
 
 	// Setup Gin router
 	router := gin.Default()
+
+	// Add CORS middleware
+	router.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"http://localhost:5173", "http://localhost:3000", "*"}, // Add your frontend URLs
+		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Accept", "Authorization"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+	}))
 
 	// Setup routes
 	routes.SetupMerchantRoutes(router)
