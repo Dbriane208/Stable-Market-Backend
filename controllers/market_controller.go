@@ -77,3 +77,22 @@ func CreateProduct(ctx *gin.Context) {
 		"data":    result,
 	})
 }
+
+func GetAllProducts(ctx *gin.Context){
+	if db.Supabase == nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Database client not initialized",
+		})
+		return
+	}
+
+	var products []models.Products
+	if err := db.Supabase.DB.From("products").Select("*").Execute(&products); err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Could not get merchant details: " + err.Error(),
+		})
+		return
+	}
+
+	ctx.JSON(http.StatusOK, products)
+}

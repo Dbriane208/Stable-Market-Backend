@@ -9,5 +9,6 @@ func SetupMarketRoutes(router *gin.Engine) {
 	market := router.Group("/api/market")
 	{
 		market.POST("/add-product", controllers.CreateProduct)
+		market.GET("/products", controllers.GetAllProducts)
 	}
 }
